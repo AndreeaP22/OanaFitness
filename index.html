@@ -1,19 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="ro">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Oana - Oana</title>
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-
 <body>
-  <!-- Script meniu -->
   <script>
     function toggleMenu() {
       const nav = document.getElementById('navLinks');
@@ -21,7 +16,6 @@
     }
   </script>
 
-  <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">
       <img src="img.png" alt="Oana Fitness Logo" class="logo-img-inline">
@@ -37,7 +31,6 @@
     </ul>
   </nav>
 
-  <!-- Hero -->
   <section id="hero-oana" class="hero-oana">
     <div class="overlay">
       <div class="hero-content">
@@ -48,7 +41,6 @@
     </div>
   </section>
 
-  <!-- Servicii -->
   <section id="servicii">
     <h2>Transformă-ți viața cu Oana Fitness</h2>
     <p>Transformarea ta începe aici. Cu antrenamente personalizate, planuri alimentare și coaching online, ai tot sprijinul de care ai nevoie ca să strălucești în cea mai bună versiune a ta!</p>
@@ -68,7 +60,6 @@
     </div>
   </section>
 
-  <!-- Despre -->
   <section id="despre">
     <h2>Despre Oana</h2>
     <div class="bio">
@@ -100,23 +91,19 @@
     </div>
   </section>
 
-  <!-- Banner motivational -->
   <section class="banner-motivational">
     <h2>Nu e vorba doar de cum arăți. E vorba de cine devii.</h2>
     <p>Fiecare pas pe care îl faci spre disciplină, claritate și echilibru te apropie de cea mai bună versiune a ta.</p>
   </section>
 
-  <!-- Contact -->
   <section id="contact-hero" class="contact-hero">
     <div class="contact-container">
-      <!-- partea stângă -->
       <div class="contact-left">
         <img src="paper-plane.png" alt="Paper Plane Icon">
         <h2>Hai să începem transformarea ta!</h2>
         <p>Completează profilul tău și spune-mi ce obiectiv ai. Eu te ajut să-l atingi cu un plan personalizat 💪</p>
       </div>
 
-      <!-- formular conectat la Google Apps Script -->
       <form id="contactForm" action="https://script.google.com/macros/s/AKfycbz4fngMNkmV_Jw1clndmWH74ubvA3C2fbs5SZbqj-UbXjJjLwY64-fwcONn4ByRXU6-/exec" method="post" class="contact-right">
         <input type="text" id="nume" name="nume" placeholder="👤 Numele tău" required>
         <input type="email" id="email" name="email" placeholder="📧 Emailul tău" required>
@@ -140,12 +127,10 @@
         <button type="submit">📤 Trimite profilul</button>
       </form>
 
-      <!-- mesaj de confirmare -->
       <p id="successMsg" style="color: green; display: none;">✅ Formular trimis cu succes! Vei fi contactată pe email.</p>
     </div>
   </section>
 
-  <!-- Iconițe sociale -->
   <div class="social-icons-official">
     <a href="https://facebook.com/oana" target="_blank">
       <img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook">
@@ -164,7 +149,6 @@
     </a>
   </div>
 
-  <!-- Footer contact -->
   <section class="contact-footer">
     <div class="centered-social">
       <p>📩 Email: <a href="mailto:oana@innatealpha.ro">oana@innatealpha.ro</a></p>
@@ -177,60 +161,37 @@
     <p>&copy; 2025 Oana | Innate Alpha</p>
   </footer>
 
-  <!-- Script mesaj confirmare -->
   <script>
     const form = document.getElementById("contactForm");
     form.addEventListener("submit", function(e) {
       e.preventDefault();
-      fetch(form.action, {
-        method: "POST",
-        body: new FormData(form)
-      })
-      .then(() => {
-        document.getElementById("successMsg").style.display = "block";
-        form.reset();
-      })
-      .catch(() => alert("❌ Eroare la trimiterea formularului. Încearcă din nou."));
+      fetch(form.action, { method: "POST", body: new FormData(form)})
+        .then(() => {
+          document.getElementById("successMsg").style.display = "block";
+          form.reset();
+        })
+        .catch(() => alert("❌ Eroare la trimiterea formularului. Încearcă din nou."));
     });
   </script>
 
-  <!-- CDN GSAP + ScrollTo + ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-  <!-- GSAP Scroll -->
   <script>
     window.addEventListener("load", () => {
-      // Start din top
       window.scrollTo(0, 0);
-
-      // Derulare foarte lentă până jos
-      gsap.to(window, {
+      const tl = gsap.timeline({ delay: 0.5 });
+      tl.to(window, { 
         duration: 30,
-        scrollTo: { y: "max" },
-        ease: "power2.inOut",
-        onComplete: () => {
-          // Revine instant sus
-          window.scrollTo(0, 0);
-        }
+        scrollTo: { y: "max" }, 
+        ease: "power2.inOut" 
+      })
+      .to(window, { 
+        duration: 15,
+        scrollTo: { y: 0 }, 
+        ease: "power2.inOut" 
       });
     });
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    gsap.from(".section", {
-      opacity: 0,
-      y: 100,
-      duration: 1.5,
-      scrollTrigger: ".section"
-    });
   </script>
-
-  <!-- Secțiuni animate -->
-  <div class="section">Prima secțiune</div>
-  <div class="section">A doua secțiune</div>
-  <div class="section">A treia secțiune</div>
-
 </body>
 </html>
