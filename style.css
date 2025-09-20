@@ -929,7 +929,7 @@ header {
   text-align: center; /* textul sub imagini să fie centrat */
   gap: 40px; /* spațiu între imagini */
   width: 100%; /* ocupă toată lățimea secțiunii */
-  margin: 20px auto; /* centru pe pagină */
+  margin: 0px auto; /* centru pe pagină */
 }
 
 .poze-alimentatie div {
