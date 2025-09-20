@@ -923,23 +923,22 @@ header {
   background-color: #ff3300;
 }
 
-
 .poze-alimentatie {
   display: flex;
-  gap: 15px;
-  margin-top: 15px;
+  justify-content: center; /* le aliniază la centru */
+  gap: 30px; /* spațiu între ele */
+  margin-top: 20px;
 }
 
 .poze-alimentatie img {
-  width: 120px;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  width: 200px;
+  height: 200px;
   object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
   transition: transform 0.3s ease;
 }
 
 .poze-alimentatie img:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* mic efect când treci cu mouse-ul peste ele */
 }
-
