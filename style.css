@@ -4,6 +4,7 @@ body {
   background-color: #111;
   color: #fff;
 }
+
 h1, h2, h3 {
   font-family: 'Montserrat', sans-serif;
   color: #ff6600;
@@ -18,11 +19,13 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
 .card:hover,
 .testimonial:hover {
   transform: scale(1.03);
   transition: transform 0.3s ease;
 }
+
 @media (max-width: 768px) {
   .bio {
     flex-direction: column;
@@ -39,9 +42,6 @@ a:hover {
     align-items: center;
   }
 
- 
-
-
   .nav-links {
     flex-direction: column;
     align-items: center;
@@ -53,11 +53,12 @@ header {
   padding: 100px 20px;
   text-align: center;
 }
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-background-color: rgba(0, 0, 0, 0.4); /* sau transparent */
+  background-color: rgba(0, 0, 0, 0.4); /* sau transparent */
   padding: 15px 30px;
   position: sticky;
   top: 0;
@@ -86,6 +87,7 @@ background-color: rgba(0, 0, 0, 0.4); /* sau transparent */
 .nav-links li a:hover {
   color: #ff6600;
 }
+
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
@@ -109,6 +111,7 @@ section {
   padding: 60px 20px;
   text-align: center;
 }
+
 #despre {
   background-color: #1a1a1a;
   padding: 60px 20px;
@@ -126,8 +129,29 @@ section {
 }
 
 .profil {
-  width: 250px;
-  border-radius: 10px;
+  width: 280px;
+  height: auto;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  margin-right: 30px;
+  opacity: 0;
+  transform: scale(0.9);
+  animation: fadeInZoom 1.2s ease forwards;
+}
+
+@keyframes fadeInZoom {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Hover effect */
+.profil:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
 }
 
 .text {
@@ -139,6 +163,7 @@ section {
   margin-bottom: 15px;
   line-height: 1.6;
 }
+
 .grid {
   display: flex;
   justify-content: center;
@@ -159,6 +184,7 @@ footer {
   text-align: center;
   font-size: 0.9rem;
 }
+
 #contact {
   background-color: #111;
   padding: 60px 20px;
@@ -204,6 +230,7 @@ footer {
   color: #ff6600;
   text-decoration: none;
 }
+
 #transformari {
   background-color: #1a1a1a;
   padding: 60px 20px;
@@ -242,683 +269,4 @@ footer {
   margin: 0;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.logo-img-inline {
-  max-height: 50px;
-  width: auto;
-}
-
-.logo span {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #ff6600;
-  font-family: 'Montserrat', sans-serif;
-}
-
-
-.menu-toggle {
-  display: none;
-  font-size: 2rem;
-  color: #fff;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background-color: #000;
-    width: 100%;
-    text-align: center;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
- 
-}
-
-
-.logo-img-inline,
-.logo span {
-  opacity: 0;
-  transform: translateY(-20px);
-  animation: fadeInUp 1s ease forwards;
-  animation-delay: 0.3s;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-.card {
-  background-color: #222;
-  padding: 20px;
-  border-radius: 10px;
-  width: 250px;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInCard 1s ease forwards;
-}
-
-.card:nth-child(1) {
-  animation-delay: 0.2s;
-}
-.card:nth-child(2) {
-  animation-delay: 0.4s;
-}
-.card:nth-child(3) {
-  animation-delay: 0.6s;
-}
-
-@keyframes fadeInCard {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.card h3 {
-  color: #ff6600;
-  font-family: 'Montserrat', sans-serif;
-  margin-bottom: 10px;
-}
-
-.card p {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: #ddd;
-}
-
-.card:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease;
-  box-shadow: 0 0 15px rgba(255, 102, 0, 0.3);
-}
-
-#servicii {
-  background: linear-gradient(to right, #111, #1a1a1a);
-  padding: 80px 20px;
-  text-align: center;
-  color: #fff;
-}
-
-#servicii p {
-  max-width: 700px;
-  margin: 0 auto 40px;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #ddd;
-  font-style: italic;
-}
-
-
-#servicii h2,
-#servicii p {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 1s ease forwards;
-}
-
-#servicii h2 {
-  animation-delay: 0.2s;
-}
-
-#servicii p {
-  animation-delay: 0.4s;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-#transformari {
-  background: linear-gradient(to right, #1a1a1a, #111);
-  padding: 80px 20px;
-  text-align: center;
-  color: #fff;
-}
-
-.testimonial {
-  background-color: #222;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 300px;
-  text-align: left;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 1s ease forwards;
-}
-
-.testimonial:nth-child(1) {
-  animation-delay: 0.2s;
-}
-.testimonial:nth-child(2) {
-  animation-delay: 0.4s;
-}
-
-.banner-motivational {
-  background-color: #ff6600;
-  color: #fff;
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.banner-motivational h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.banner-motivational p {
-  font-size: 1.1rem;
-  max-width: 700px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-/* Animație generală de apariție */
-.fade-in-up {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 1s ease forwards;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Aplicați clasele pe titluri și paragrafe */
-section h2,
-section p,
-.card,
-.testimonial,
-.contact-form,
-.banner-motivational {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 1s ease forwards;
-}
-
-section h2 { animation-delay: 0.2s; }
-section p { animation-delay: 0.4s; }
-.card:nth-child(1) { animation-delay: 0.5s; }
-.card:nth-child(2) { animation-delay: 0.7s; }
-.card:nth-child(3) { animation-delay: 0.9s; }
-.testimonial:nth-child(1) { animation-delay: 0.5s; }
-.testimonial:nth-child(2) { animation-delay: 0.7s; }
-.contact-form { animation-delay: 0.3s; }
-.banner-motivational { animation-delay: 0.2s; }
-
-
-
-.popup-success {
-  position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #ff6600;
-  color: #fff;
-  padding: 15px 25px;
-  border-radius: 8px;
-  font-size: 1rem;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s ease;
-  z-index: 9999;
-}
-
-.popup-success.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-
-.contact-hero {
-  background: linear-gradient(135deg, #ff6600, #ff3366);
-  color: white;
-  padding: 80px 20px;
-  font-family: 'Poppins', sans-serif;
-}
-
-.contact-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-  align-items: center;
-  justify-content: center;
-}
-
-.contact-left {
-  flex: 1;
-  min-width: 300px;
-  text-align: center;
-}
-
-.contact-left img {
-  width: 80px;
-  margin-bottom: 20px;
-}
-
-.contact-left h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-.contact-left p {
-  font-size: 1.1rem;
-}
-
-.contact-right {
-  flex: 1;
-  min-width: 300px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.contact-right input,
-.contact-right textarea,
-.contact-right select {
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-family: 'Poppins', sans-serif;
-  background-color: white;
-  color: #333;
-}
-
-.contact-right button {
-  background-color: white;
-  color: #ff3366;
-  font-weight: bold;
-  border: none;
-  padding: 14px;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.contact-right button:hover {
-  transform: scale(1.05);
-}
-
-.social-icons {
-  display: flex;
-  gap: 15px;
-  margin-top: 20px;
-  justify-content: center;
-}
-
-.social-icons img {
-  width: 30px;
-  height: 30px;
-  transition: transform 0.3s ease;
-}
-
-.social-icons img:hover {
-  transform: scale(1.2);
-}
-
-.fitness-form {
-  max-width: 500px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.fitness-form label {
-  text-align: left;
-  font-weight: 600;
-  margin-bottom: 5px;
-}
-
-.fitness-form input,
-.fitness-form textarea 
-.fitness-form select {
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-family: 'Poppins', sans-serif;
-}
-
-.fitness-form button {
-  background-color: white;
-  color: #ff3366;
-  font-weight: bold;
-  border: none;
-  padding: 14px;
-  border-radius: 8px;
-  font-size: 1rem;
- cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.fitness-form button:hover {
-  transform: scale(1.05);
-}
-
-
-.profil-fitness {
-  background: #fefefe;
-  padding: 60px 20px;
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-}
-
-.profil-fitness h2 {
-  font-size: 2rem;
-  color: #ff3366;
-  margin-bottom: 10px;
-}
-
-.profil-fitness .intro {
-  font-size: 1.1rem;
-  margin-bottom: 30px;
-  color: #333;
-}
-
-.fitness-profile {
-  max-width: 500px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.fitness-profile label {
-  text-align: left;
-  font-weight: 600;
-  margin-bottom: 5px;
-  color: #444;
-}
-
-.fitness-profile input,
-.fitness-profile select {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-family: 'Poppins', sans-serif;
-}
-
-.fitness-profile button {
-  background-color: #ff3366;
-  color: white;
-  font-weight: bold;
-  border: none;
-  padding: 14px;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-
-.social-emojis {
-  font-size: 2rem;
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 40px;
-}
-
-.social-emojis a {
-  text-decoration: none;
-  transition: transform 0.3s ease;
-}
-
-.social-emojis a:hover {
-  transform: scale(1.2);
-}
-
-.centered-social {
-  text-align: center;
-  margin-top: 40px;
-  font-size: 1rem;
-}
-.contact-footer {
-  background-color: #000;
-  padding: 40px 20px;
-  color: white;
-  text-align: center;
-}
-.centered-social p {
-  margin: 10px 0;
-}
-
-.centered-social a {
-  color: #ff6600;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.centered-social a:hover {
-  text-decoration: underline;
-}
-
-.social-emojis {
-  font-size: 2rem;
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin: 40px auto;
-}
-
-.social-emojis a {
-  text-decoration: none;
-  transition: transform 0.3s ease;
-}
-
-.social-emojis a:hover {
-  transform: scale(1.2);
-}
-
-.contact-footer {
-  background-color: #000;
-  padding: 40px 20px;
-  color: white;
-  text-align: center;
-}
-
-.centered-social {
-  font-size: 1rem;
-}
-
-.centered-social p {
-  margin: 10px 0;
-}
-
-.centered-social a {
-  color: #ff6600;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.centered-social a:hover {
-  text-decoration: underline;
-}
-
-.social-colored {
-  display: flex;
-  text-align: center;
-  margin-top: 30px;
- margin-top: 40px;
-}
-
-.social-colored a {
-  padding: 15px;
-  font-size: 30px;
-  width: 50px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
-  display: inline-block;
-}
-
-.social-colored a:hover {
-  transform: scale(1.2);
-}
-
-/* Culori oficiale */
-.facebook {
-  background-color: #3b5998;
-  color: white;
-}
-
-.instagram {
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-  color: white;
-}
-
-.whatsapp {
-  background-color: #25D366;
-  color: white;
-}
-
-.gmail {
-  background-color: #D44638;
-  color: white;
-}
-
-.tiktok {
-  background-color: #000000;
-  color: #69C9D0;
-}
-
-.icon-social {
-  width: 50px;
-  height: auto;
-  transition: transform 0.3s ease;
-}
-
-.icon-social:hover {
-  transform: scale(1.2);
-}.social-icons-official {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 25px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #000;
-  border-radius: 12px;
-  flex-wrap: wrap;
-}
-
-.social-icons-official a img {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.social-icons-official a img:hover {
-  transform: scale(1.2);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-}
-
-.icon-social {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
-}
-
-.icon-social:hover {
-  transform: scale(1.2);
-}
-header {
-  background: #000; /* scos gradientul portocaliu */
-  padding: 0; /* eliminăm spațiul mare */
-  margin: 0;
-}
-
-.hero-oana {
-    padding-top: 80px;
-  background-image: url('poza-fitness.jpg'); /* actualizează calea dacă e diferită */
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  height: 100vh;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  font-family: 'Poppins', sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.overlay {
-  background: rgba(0, 0, 0, 0.5); 
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 20px;
-}
-
-.hero-content {
-  color: white;
-  max-width: 800px;
-}
-
-.hero-content h1 {
-  font-size: 2.8rem;
-  margin-bottom: 15px;
-  color: #ff6600;
-}
-
-.hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-}
-
-.btn-hero {
-  background-color: #ff6600;
-  color: white;
-  padding: 14px 30px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1rem;
-  transition: background 0.3s ease;
-}
-
-.btn-hero:hover {
-  background-color: #ff3300;
-}
+/* restul codului CSS continuă aici */

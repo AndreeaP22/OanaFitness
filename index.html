@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Innate Alpha - Oana</title>
+  <title>Oana - Oana</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+
   <script>
     function toggleMenu() {
       const nav = document.getElementById('navLinks');
@@ -42,20 +43,20 @@
   </section>
 
   <section id="servicii">
-    <h2>Transformă-ți viața cu serviciile noastre</h2>
-    <p>Fiecare program este creat pentru a te ajuta să devii mai puternică, mai echilibrată și mai încrezătoare. Alege ce ți se potrivește și începe călătoria ta!</p>
+    <h2>Transformă-ți viața cu Oana Fitness</h2>
+    <p>Transformarea ta începe aici. Cu antrenamente personalizate, planuri alimentare și coaching online, ai tot sprijinul de care ai nevoie ca să strălucești în cea mai bună versiune a ta!</p>
     <div class="grid">
       <div class="card">
-        <h3>Fitness & Nutriție</h3>
-        <p>Planuri personalizate pentru antrenament și alimentație.</p>
+        <h3>🏋️‍♀️ Antrenamente private, adaptate obiectivelor tale.</h3>
+        <p>Sesiuni personalizate, adaptate nivelului și obiectivelor tale, pentru rezultate rapide și eficiente.</p>
       </div>
       <div class="card">
-        <h3>Mindset Coaching</h3>
-        <p>Dezvoltare mentală și emoțională pentru performanță.</p>
+        <h3>🥗 Planuri alimentare</h3>
+        <p>Rețete și planuri nutriționale adaptate stilului tău de viață și obiectivelor tale de fitness.</p>
       </div>
       <div class="card">
-        <h3>Business Mentorship</h3>
-        <p>Strategii pentru creșterea afacerii tale în fitness.</p>
+        <h3>💻 Online Coaching</h3>
+        <p>Suport și ghidare de la distanță pentru ca tu să rămâi motivată și să atingi obiectivele oriunde te-ai afla.</p>
       </div>
     </div>
   </section>
@@ -63,10 +64,30 @@
   <section id="despre">
     <h2>Despre Oana</h2>
     <div class="bio">
-      <img src="andreea.jpg" alt="Oana - Coach" class="profil">
+      <img src="poza4.jpg" alt="Oana - Coach" class="profil">
       <div class="text">
         <p>Sunt Oana, misiunea mea este să ajut oamenii să-și transforme viața prin disciplină, claritate mentală și echilibru fizic. Am început acest proiect din dorința de a oferi un sistem real, aplicabil și susținut, care să aducă rezultate vizibile și durabile.</p>
         <p>Fie că vrei să-ți redefinești corpul, să-ți schimbi mentalitatea sau să-ți crești afacerea, sunt aici să te ghidez pas cu pas. Nu e vorba doar de fitness—e vorba de cine devii în proces.</p>
+      </div>
+    </div>
+
+    <!-- 🥗 Importanța alimentației sănătoase -->
+    <div class="alimentatie">
+      <h3>Alimentația sănătoasă în viața mea</h3>
+      <p>Mâncarea sănătoasă nu este doar combustibil pentru corp, ci și baza unei vieți echilibrate și pline de energie. De aceea, aleg mereu preparate colorate, proaspete și nutritive, care îmi dau claritate și forță pentru fiecare zi.</p>
+      <div class="poze-alimentatie">
+        <div>
+          <img src="poza1.jpg" alt="Salată sănătoasă">
+          <p>🥗 Salată sănătoasă</p>
+        </div>
+        <div>
+          <img src="poza2.jpg" alt="Mic dejun sănătos">
+          <p>🍓 Mic dejun sănătos</p>
+        </div>
+        <div>
+          <img src="poza3.jpg" alt="Bowl nutritiv">
+          <p>🥑 Bowl nutritiv</p>
+        </div>
       </div>
     </div>
   </section>
@@ -86,7 +107,7 @@
       </div>
 
       <!-- formularul conectat la Google Apps Script -->
-      <form id="contactForm" action="https://script.google.com/macros/s/AKfycbyBvloFsyT2dJ32rpfRFvC8Gr2Y-t6Ps-NcLJzWm_z5LvbIBhQDUQV-dMNFiJbssh3e2g/exec" method="post" class="contact-right">
+      <form id="contactForm" action="https://script.google.com/macros/s/AKfycbz4fngMNkmV_Jw1clndmWH74ubvA3C2fbs5SZbqj-UbXjJjLwY64-fwcONn4ByRXU6-/exec" method="post" class="contact-right">
         <input type="text" id="nume" name="nume" placeholder="👤 Numele tău" required>
         <input type="email" id="email" name="email" placeholder="📧 Emailul tău" required>
         <textarea id="mesaj" name="mesaj" rows="4" placeholder="💬 Ce vrei să transformăm împreună..." required></textarea>
@@ -151,13 +172,34 @@
     const form = document.getElementById("contactForm");
     form.addEventListener("submit", function(e) {
       e.preventDefault();
-      fetch(form.action, { method: "POST", body: new FormData(form)})
-        .then(() => {
-          document.getElementById("successMsg").style.display = "block";
-          form.reset();
-        })
-        .catch(() => alert("❌ Eroare la trimiterea formularului. Încearcă din nou."));
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(form)
+      })
+      .then(() => {
+        document.getElementById("successMsg").style.display = "block";
+        form.reset();
+      })
+      .catch(() => alert("❌ Eroare la trimiterea formularului. Încearcă din nou."));
     });
   </script>
+
+  <!-- CDN GSAP + ScrollTo -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+  <script>
+    window.onload = () => {
+      // Pornește de sus
+      window.scrollTo({ top: 0 });
+
+      // Derulează până jos într-un efect cinematic
+      gsap.to(window, {
+        duration: 8,
+        scrollTo: { y: "max" },
+        ease: "power2.inOut"
+      });
+    };
+  </script>
+
 </body>
 </html>
