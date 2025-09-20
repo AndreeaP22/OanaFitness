@@ -1,18 +1,10 @@
-
-
-
-
-
-
-
-
-
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background-color: #111;
   color: #fff;
 }
+
 h1, h2, h3 {
   font-family: 'Montserrat', sans-serif;
   color: #ff6600;
@@ -27,11 +19,13 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
 .card:hover,
 .testimonial:hover {
   transform: scale(1.03);
   transition: transform 0.3s ease;
 }
+
 @media (max-width: 768px) {
   .bio {
     flex-direction: column;
@@ -48,9 +42,6 @@ a:hover {
     align-items: center;
   }
 
- 
-
-
   .nav-links {
     flex-direction: column;
     align-items: center;
@@ -62,204 +53,71 @@ header {
   padding: 100px 20px;
   text-align: center;
 }
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-background-color: rgba(0, 0, 0, 0.4); /* sau transparent */
+  background-color: rgba(0, 0, 0, 0.4); /* sau transparent */
   padding: 15px 30px;
-  position: sticky;
-  top: 0;
-
-/* Fonts & Reset */
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
-  overflow-x: hidden;
-  color: #fff;
-}
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Dark mode */
-.dark-mode {
-  background: #121212;
-  color: #eee;
-}
-.dark-mode .navbar, 
-.dark-mode footer {
-  background: #1e1e1e;
-}
-.dark-mode .btn-hero {
-  background: #ff6600;
-}
-
-/* Typography */
-h1, h2, h3 {
-  font-family: 'Montserrat', sans-serif;
-  color: #ff6600;
-  margin-bottom: 20px;
-}
-
-a {
-  color: #ff6600;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background: rgba(0,0,0,0.5);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
-.logo-img-inline {
-  height: 40px;
-  margin-right: 10px;
-}
+
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 15px;
   font-size: 1.5rem;
   font-weight: bold;
   color: #ff6600;
 }
-.logo span {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #ff6600;
-  font-family: 'Montserrat', sans-serif;
-}
+
 .nav-links {
   list-style: none;
   display: flex;
   gap: 20px;
 }
+
 .nav-links li a {
+  color: #fff;
   text-decoration: none;
   font-weight: 500;
-  color: #fff;
   transition: color 0.3s ease;
 }
+
 .nav-links li a:hover {
   color: #ff6600;
 }
-.menu-toggle {
-  display: none;
-  font-size: 2rem;
-  color: #fff;
-  cursor: pointer;
-}
-@media (max-width: 768px) {
-  .nav-links { 
-    display: none;
-    flex-direction: column;
-    background-color: #000;
-    width: 100%;
-    text-align: center;
-  }
-  .nav-links.active { display: flex; }
-  .menu-toggle { display: block; }
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
 }
 
-/* Hero */
-.hero-oana {
-  padding-top: 80px;
-  background-image: url('poza-fitness.jpg');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  height: 100vh;
-  width: 100%;
-  margin: 0;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.overlay {
-  background: rgba(0, 0, 0, 0.5); 
-  width: 100%; height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 20px;
-}
-.hero-content {
-  color: white;
-  max-width: 800px;
-}
-.hero-content h1 {
-  font-size: 2.8rem;
-  margin-bottom: 15px;
-  color: #ff6600;
-}
-.hero-content p {
+.hero p {
   font-size: 1.2rem;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
-.btn-hero {
-  background-color: #ff6600;
-  color: white;
-  padding: 14px 30px;
-  border-radius: 8px;
+
+.btn {
+  background-color: #fff;
+  color: #111;
+  padding: 10px 20px;
   text-decoration: none;
   font-weight: bold;
-  font-size: 1rem;
-  transition: background 0.3s ease;
-}
-.btn-hero:hover {
-  background-color: #ff3300;
+  border-radius: 5px;
 }
 
-/* Secțiuni */
-.section {
-  padding: 100px 20px;
+section {
+  padding: 60px 20px;
   text-align: center;
 }
 
-/* Grid Servicii */
-.grid {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
+#despre {
+  background-color: #1a1a1a;
+  padding: 60px 20px;
+  text-align: center;
 }
-.card {
-  width: 300px;
-  height: 400px;
-  perspective: 1000px;
-}
-.card-inner {
-  width: 100%; height: 100%;
-  transition: transform 1s;
-  transform-style: preserve-3d;
-}
-.card:hover .card-inner { transform: rotateY(180deg); }
-.card-front, .card-back {
-  position: absolute;
-  width: 100%; height: 100%;
-  backface-visibility: hidden;
-}
-.card-back { transform: rotateY(180deg); }
 
-/* Despre */
 .bio {
   display: flex;
   flex-wrap: wrap;
@@ -269,183 +127,146 @@ a:hover {
   max-width: 900px;
   margin: 0 auto;
 }
+
 .profil {
   width: 280px;
+  height: auto;
   border-radius: 15px;
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  margin-right: 30px;
+  opacity: 0;
+  transform: scale(0.9);
+  animation: fadeInZoom 1.2s ease forwards;
 }
+
+@keyframes fadeInZoom {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Hover effect */
+.profil:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
 .text {
   max-width: 500px;
   text-align: left;
 }
 
-/* Poze alimentație */
-.poze-alimentatie {
+.text p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.grid {
   display: flex;
   justify-content: center;
-  gap: 40px;
-  margin-top: 30px;
+  gap: 20px;
   flex-wrap: wrap;
 }
-.poze-alimentatie div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.poze-alimentatie img {
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease;
-}
-.poze-alimentatie img:hover {
-  transform: scale(1.05);
-}
-.poze-alimentatie p {
-  margin-top: 10px;
-  font-size: 16px;
-  color: white;
+
+.card {
+  background-color: #222;
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
 }
 
-/* Banner */
-.banner-motivational {
+footer {
+  background-color: #000;
+  padding: 20px;
   text-align: center;
-  padding: 80px 20px;
-  color: #fff;
-  background: linear-gradient(90deg, #ff6600, #ff3366);
-  background-size: 200% 200%;
-  animation: gradientMove 6s infinite alternate;
-}
-@keyframes gradientMove {
-  0% { background-position: left; }
-  100% { background-position: right; }
+  font-size: 0.9rem;
 }
 
-/* Contact */
-.contact-hero {
+#contact {
+  background-color: #111;
   padding: 60px 20px;
   text-align: center;
 }
-.contact-container {
-  max-width: 800px;
-  margin: auto;
+
+.contact-form {
   display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
 }
-.contact-right input, .contact-right textarea {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-}
-.contact-right button {
-  padding: 12px 25px;
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
   border: none;
-  border-radius: 20px;
-  background: #ff3366;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  background-color: #ff6600;
   color: #fff;
+  border: none;
+  padding: 12px;
+  font-weight: bold;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-/* Footer */
-footer {
+.contact-form button:hover {
+  background-color: #ff3300;
+}
+
+.contact-info {
+  margin-top: 30px;
+  font-size: 1rem;
+}
+
+.contact-info a {
+  color: #ff6600;
+  text-decoration: none;
+}
+
+#transformari {
+  background-color: #1a1a1a;
+  padding: 60px 20px;
   text-align: center;
-  padding: 15px;
-  background: rgba(0,0,0,0.6);
+}
+
+.testimonials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
   margin-top: 30px;
 }
 
-/* RESPONSIVE DESIGN */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+.testimonial {
+  background-color: #222;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 300px;
+  text-align: left;
 }
 
-@media (max-width: 992px) {
-  .hero-content h1 {
-    font-size: 2.2rem;
-  }
-  .hero-content p {
-    font-size: 1rem;
-  }
-  .section {
-    padding: 60px 15px;
-  }
+.testimonial img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
 }
 
-@media (max-width: 768px) {
-  .hero-oana {
-    background-attachment: scroll; /* fix pentru mobil */
-    height: auto;
-    padding: 100px 20px;
-  }
-  .hero-content h1 {
-    font-size: 1.8rem;
-  }
-  .hero-content p {
-    font-size: 0.95rem;
-  }
-  .grid {
-    flex-direction: column;
-    align-items: center;
-  }
-  .bio {
-    flex-direction: column;
-    text-align: center;
-  }
-  .text {
-    text-align: center;
-  }
-  .poze-alimentatie {
-    gap: 20px;
-  }
-  .poze-alimentatie img {
-    width: 160px;
-    height: 160px;
-  }
+.testimonial p {
+  font-style: italic;
+  margin-bottom: 10px;
 }
 
-@media (max-width: 480px) {
-  .logo span {
-    font-size: 1rem;
-  }
-  .hero-content h1 {
-    font-size: 1.5rem;
-  }
-  .hero-content p {
-    font-size: 0.85rem;
-  }
-  .btn-hero {
-    padding: 12px 20px;
-    font-size: 0.9rem;
-  }
-  .poze-alimentatie img {
-    width: 140px;
-    height: 140px;
-  }
+.testimonial h4 {
+  color: #ff6600;
+  margin: 0;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-.logo img {
-  height: 50px;   /* ajustează dimensiunea */
-  width: auto;
-  margin-right: 10px;
-}
-
-.logo span {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #ff6600; /* portocaliu */
-}
+/* restul codului CSS continuă aici */
