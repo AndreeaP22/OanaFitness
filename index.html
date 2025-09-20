@@ -3,179 +3,135 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oana - Fitness</title>
+  <title>Oana Fitness</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <script>
-    function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('active');
-    }
-    function toggleTheme() {
-      document.body.classList.toggle("dark-mode");
-    }
-  </script>
-
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">
-      <img src="img.png" alt="Oana Fitness Logo" class="logo-img-inline">
+      <img src="logo.png" alt="Logo" class="logo-img-inline">
       <span>Be Your Best with Oana Fitness</span>
     </div>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#hero-oana">Acasă</a></li>
+    <ul class="nav-links">
+      <li><a href="#hero">Acasă</a></li>
       <li><a href="#servicii">Servicii</a></li>
       <li><a href="#abonamente">Abonamente</a></li>
       <li><a href="#despre">Despre</a></li>
       <li><a href="#contact-hero">Contact</a></li>
     </ul>
-    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    <div class="menu-toggle">☰</div>
+    <button id="darkModeToggle">🌙</button>
   </nav>
 
   <!-- Hero -->
-  <section id="hero-oana" class="hero-oana">
+  <section id="hero" class="hero-oana">
     <div class="overlay">
       <div class="hero-content">
-        <h1>Devino cea mai bună versiune a ta</h1>
-        <p>Transformă-ți corpul, mintea și afacerea cu Oana</p>
-        <a href="#abonamente" class="btn-hero">Începe transformarea</a>
+        <h1>Transformă-ți viața cu Oana Fitness</h1>
+        <p>Transformarea ta începe aici...</p>
+        <a href="#servicii" class="btn-hero">Descoperă serviciile</a>
       </div>
     </div>
   </section>
 
   <!-- Servicii -->
-     <section id="servicii">
-  <h2>Transformă-ți viața cu Oana Fitness</h2>
-  <p>Transformarea ta începe aici. Cu antrenamente personalizate, planuri alimentare și coaching online, ai tot sprijinul de care ai nevoie ca să strălucești în cea mai bună versiune a ta!</p>
-  <div class="grid">
-    <div class="card">
-      <h3>🏋️‍♀️ Antrenamente private, adaptate obiectivelor tale.</h3>
-      <p>Sesiuni personalizate, adaptate nivelului și obiectivelor tale, pentru rezultate rapide și eficiente.</p>
+  <section id="servicii" class="section">
+    <h2>Serviciile mele</h2>
+    <div class="grid">
+      <!-- Card 1 -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <h3>🏋️‍♀️ Antrenamente private</h3>
+          </div>
+          <div class="card-back">
+            <p>Sesiuni personalizate adaptate nivelului și obiectivelor tale.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <h3>🥗 Planuri alimentare</h3>
+          </div>
+          <div class="card-back">
+            <p>Rețete și planuri nutriționale adaptate stilului tău de viață.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            <h3>💻 Online Coaching</h3>
+          </div>
+          <div class="card-back">
+            <p>Suport și ghidare de la distanță pentru rezultate maxime.</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <h3>🥗 Planuri alimentare</h3>
-      <p>Rețete și planuri nutriționale adaptate stilului tău de viață și obiectivelor tale de fitness.</p>
-    </div>
-    <div class="card">
-      <h3>💻 Online Coaching</h3>
-      <p>Suport și ghidare de la distanță pentru ca tu să rămâi motivată și să atingi obiectivele oriunde te-ai afla.</p>
-    </div>
-  </div>
-</section>
-
-
+  </section>
 
   <!-- Despre -->
   <section id="despre" class="section">
-    <h2>Despre Oana</h2>
     <div class="bio">
-      <img src="poza4.jpg" alt="Oana - Coach" class="profil">
+      <img src="oana.jpg" alt="Oana Fitness" class="profil">
       <div class="text">
-        <p>Sunt Oana, misiunea mea este să ajut oamenii să-și transforme viața prin sport și nutriție.</p>
+        <h2>Despre mine</h2>
+        <p>Sunt Oana, antrenor personal și nutriționist. Misiunea mea este să te ajut să-ți atingi obiectivele într-un mod sănătos și sustenabil.</p>
       </div>
     </div>
-    <div class="poze-alimentatie">
-      <div><img src="poza1.jpg"><p>🥗 Salată</p></div>
-      <div><img src="poza2.jpg"><p>🍓 Mic dejun</p></div>
-      <div><img src="poza3.jpg"><p>🥑 Bowl</p></div>
-    </div>
-  </section>
-
-  <!-- Banner -->
-  <section class="banner-motivational">
-    <h2>Nu e vorba doar de cum arăți. E vorba de cine devii.</h2>
-    <p>Fiecare pas te apropie de cea mai bună versiune a ta.</p>
   </section>
 
   <!-- Contact -->
-  <!-- formularul conectat la Google Apps Script -->
-      <form id="contactForm" action="https://script.google.com/macros/s/AKfycbz4fngMNkmV_Jw1clndmWH74ubvA3C2fbs5SZbqj-UbXjJjLwY64-fwcONn4ByRXU6-/exec" method="post" class="contact-right">
-        <input type="text" id="nume" name="nume" placeholder="👤 Numele tău" required>
-        <input type="email" id="email" name="email" placeholder="📧 Emailul tău" required>
-        <textarea id="mesaj" name="mesaj" rows="4" placeholder="💬 Ce vrei să transformăm împreună..." required></textarea>
-        <input type="number" id="greutate" name="greutate" placeholder="⚖️ Greutate (kg)" required>
-        <input type="number" id="inaltime" name="inaltime" placeholder="📏 Înălțime (cm)" required>
-        <select id="stil_viata" name="stil_viata" required>
-          <option value="">🧘‍♀️ Stil de viață</option>
-          <option value="sedentar">Sedentar</option>
-          <option value="activ">Activ</option>
-          <option value="sportiv">Sportiv</option>
-          <option value="intens">Intens</option>
-        </select>
-        <select id="obiectiv" name="obiectiv" required>
-          <option value="">🎯 Obiectiv principal</option>
-          <option value="slabire">Slăbire</option>
-          <option value="tonifiere">Tonifiere</option>
-          <option value="masa-musculara">Masă musculară</option>
-          <option value="mentinere">Menținere</option>
-        </select>
-        <button type="submit">📤 Trimite profilul</button>
-      </form>
-
-      <!-- mesaj de confirmare -->
-      <p id="successMsg" style="color: green; display: none;">✅ Formular trimis cu succes! Vei fi contactată pe email.</p>
-    </div>
+  <section id="contact-hero" class="contact-hero">
+    <h2>Hai să începem transformarea ta!</h2>
+    <form id="contactForm" action="https://script.google.com/macros/s/AKfycbz4fngMNkmV_Jw1clndmWH74ubvA3C2fbs5SZbqj-UbXjJjLwY64-fwcONn4ByRXU6-/exec" method="post" class="contact-right">
+      <input type="text" id="nume" name="nume" placeholder="👤 Numele tău" required>
+      <input type="email" id="email" name="email" placeholder="📧 Emailul tău" required>
+      <textarea id="mesaj" name="mesaj" rows="4" placeholder="💬 Ce vrei să transformăm împreună..." required></textarea>
+      <input type="number" id="greutate" name="greutate" placeholder="⚖️ Greutate (kg)" required>
+      <input type="number" id="inaltime" name="inaltime" placeholder="📏 Înălțime (cm)" required>
+      <select id="stil_viata" name="stil_viata" required>
+        <option value="">🧘‍♀️ Stil de viață</option>
+        <option value="sedentar">Sedentar</option>
+        <option value="activ">Activ</option>
+        <option value="sportiv">Sportiv</option>
+        <option value="intens">Intens</option>
+      </select>
+      <select id="obiectiv" name="obiectiv" required>
+        <option value="">🎯 Obiectiv principal</option>
+        <option value="slabire">Slăbire</option>
+        <option value="tonifiere">Tonifiere</option>
+        <option value="masa-musculara">Masă musculară</option>
+        <option value="mentinere">Menținere</option>
+      </select>
+      <button type="submit">📤 Trimite profilul</button>
+    </form>
+    <p id="successMsg" style="color: green; display: none;">✅ Formular trimis cu succes! Vei fi contactată pe email.</p>
   </section>
-
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Oana | Innate Alpha</p>
+    <p>&copy; 2025 Oana Fitness. Toate drepturile rezervate.</p>
   </footer>
 
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-
   <script>
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-
-    // Hero content
-    gsap.from(".hero-content h1", { y: -50, opacity: 0, duration: 1 });
-    gsap.from(".hero-content p", { y: 30, opacity: 0, duration: 1, delay: 0.3 });
-    gsap.from(".btn-hero", { scale: 0.8, opacity: 0, duration: 0.8, delay: 0.6 });
-
-    // Secțiuni fade-in
-    gsap.utils.toArray(".section").forEach(sec => {
-      gsap.from(sec, {
-        opacity: 0, y: 100, duration: 1.2,
-        scrollTrigger: { trigger: sec, start: "top 80%", toggleActions: "play none none reverse" }
-      });
+    // Dark mode
+    const toggle = document.getElementById("darkModeToggle");
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
     });
 
-    // Carduri bounce
-    gsap.utils.toArray(".card").forEach((card, i) => {
-      gsap.from(card, {
-        opacity: 0, y: 50, scale: 0.9,
-        duration: 1, delay: i * 0.2, ease: "bounce.out",
-        scrollTrigger: card
-      });
-    });
-
-    // Pozele alimentație
-    gsap.utils.toArray(".poze-alimentatie img").forEach((img, i) => {
-      gsap.from(img, {
-        opacity: 0, scale: 0.5, duration: 1,
-        delay: i * 0.3, ease: "power2.out", scrollTrigger: img
-      });
-    });
-
-    // Banner
-    gsap.from(".banner-motivational h2", {
-      opacity: 0, y: 40, duration: 1, scrollTrigger: ".banner-motivational"
-    });
-
-    // Scroll auto jos -> instant sus
-    window.addEventListener("load", () => {
-      window.scrollTo(0, 0);
-      gsap.to(window, { 
-        duration: 20, scrollTo: { y: "max" }, ease: "power1.inOut",
-        onComplete: () => window.scrollTo(0,0) 
-      });
+    // Navbar toggle pe mobil
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
     });
   </script>
 </body>
