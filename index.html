@@ -86,31 +86,29 @@
       </div>
 
       <!-- formularul (doar Firebase) -->
-      <form id="contactForm" class="contact-right">
-        <input type="text" name="nume" id="nume" placeholder="👤 Numele tău" required>
-        <input type="email" name="email" id="email" placeholder="📧 Emailul tău" required>
-        <textarea name="mesaj" id="mesaj" rows="4" placeholder="💬 Ce vrei să transformăm împreună..." required></textarea>
-        <input type="number" name="greutate" id="greutate" placeholder="⚖️ Greutate (kg)" required>
-        <input type="number" name="inaltime" id="inaltime" placeholder="📏 Înălțime (cm)" required>
-        
-        <select name="stil_viata" id="stil_viata" required>
-          <option value="">🧘‍♀️ Stil de viață</option>
-          <option value="sedentar">Sedentar</option>
-          <option value="activ">Activ</option>
-          <option value="sportiv">Sportiv</option>
-          <option value="intens">Intens</option>
-        </select>
+<form action="https://script.google.com/macros/s/AKfycbzFQO6y1TABrzFG0INZ7gmVjTeDYIg8Wpk7LtX-4N9LNJ1Lan4_XPRx9RI_9DlfPmBknw/exec" method="post" class="contact-right">
+  <input type="text" name="nume" placeholder="👤 Numele tău" required>
+  <input type="email" name="email" placeholder="📧 Emailul tău" required>
+  <textarea name="mesaj" rows="4" placeholder="💬 Ce vrei să transformăm împreună..." required></textarea>
+  <input type="number" name="greutate" placeholder="⚖️ Greutate (kg)" required>
+  <input type="number" name="inaltime" placeholder="📏 Înălțime (cm)" required>
+  <select name="stil_viata" required>
+    <option value="">🧘‍♀️ Stil de viață</option>
+    <option value="sedentar">Sedentar</option>
+    <option value="activ">Activ</option>
+    <option value="sportiv">Sportiv</option>
+    <option value="intens">Intens</option>
+  </select>
+  <select name="obiectiv" required>
+    <option value="">🎯 Obiectiv principal</option>
+    <option value="slabire">Slăbire</option>
+    <option value="tonifiere">Tonifiere</option>
+    <option value="masa-musculara">Masă musculară</option>
+    <option value="mentinere">Menținere</option>
+  </select>
+  <button type="submit">📤 Trimite profilul</button>
+</form>
 
-        <select name="obiectiv" id="obiectiv" required>
-          <option value="">🎯 Obiectiv principal</option>
-          <option value="slabire">Slăbire</option>
-          <option value="tonifiere">Tonifiere</option>
-          <option value="masa-musculara">Masă musculară</option>
-          <option value="mentinere">Menținere</option>
-        </select>
-
-        <button type="submit">📤 Trimite profilul</button>
-      </form>
     </div>
   </section>
 
