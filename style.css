@@ -922,3 +922,24 @@ header {
 .btn-hero:hover {
   background-color: #ff3300;
 }
+
+
+.poze-alimentatie {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.poze-alimentatie img {
+  width: 120px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.poze-alimentatie img:hover {
+  transform: scale(1.05);
+}
+
