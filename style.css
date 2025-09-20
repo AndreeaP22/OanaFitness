@@ -922,17 +922,25 @@ header {
 .btn-hero:hover {
   background-color: #ff3300;
 }
-
 .poze-alimentatie {
   display: flex;
-  justify-content: center; /* le aliniază la centru */
-  gap: 30px; /* spațiu între ele */
-  margin-top: 20px;
+  justify-content: center; /* aliniere pe centru pe orizontală */
+  align-items: center; /* aliniere pe centru pe verticală */
+  text-align: center; /* textul sub imagini să fie centrat */
+  gap: 40px; /* spațiu între imagini */
+  width: 100%; /* ocupă toată lățimea secțiunii */
+  margin: 20px auto; /* centru pe pagină */
+}
+
+.poze-alimentatie div {
+  display: flex;
+  flex-direction: column; /* imaginea deasupra, textul dedesubt */
+  align-items: center; 
 }
 
 .poze-alimentatie img {
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   object-fit: cover;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
@@ -940,5 +948,11 @@ header {
 }
 
 .poze-alimentatie img:hover {
-  transform: scale(1.05); /* mic efect când treci cu mouse-ul peste ele */
+  transform: scale(1.05);
+}
+
+.poze-alimentatie p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: white;
 }
