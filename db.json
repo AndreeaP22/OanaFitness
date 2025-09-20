@@ -1,0 +1,29 @@
+{
+  "stats": {
+    "visits": 3,
+    "messages": 1,
+    "links": {
+      "Instagram": 2,
+      "TikTok": 1
+    }
+  },
+  "messages": {
+    "-Nkf3abc12": {
+      "nume": "Oana",
+      "email": "oana@gmail.com",
+      "text": "Salut, vreau abonament!",
+      "timestamp": 1695159382000,
+      "archived": false
+    }
+  },
+  "logs": {
+    "visits": {
+      "-Nkf3xyz": { "timestamp": 1695159382000 }
+    },
+    "links": {
+      "Instagram": {
+        "-Nkf3zyx": { "timestamp": 1695159400000 }
+      }
+    }
+  }
+}

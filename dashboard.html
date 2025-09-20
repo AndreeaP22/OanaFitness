@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Oana Fitness</title>
+  <link rel="stylesheet" href="style1.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">🏋️‍♀️ Oana Fitness</div>
+    <nav>
+      <a href="#" class="active">📊 Dashboard</a>
+      <a href="#visits">👀 Vizite</a>
+      <a href="#messages">📩 Mesaje</a>
+      <a href="#links">🔗 Linkuri</a>
+      <a href="#logs">📜 Loguri</a>
+    </nav>
+    <div class="user">
+      <img src="andreea.jpg" alt="Admin">
+      <div>
+        <p><strong>Oana</strong></p>
+        <small>Admin</small>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Conținut -->
+  <main class="content">
+    <!-- Header -->
+    <header class="topbar">
+      <h1>📊 Dashboard</h1>
+      <input type="search" placeholder="Caută...">
+    </header>
+
+    <!-- Statistici rapide -->
+    <section class="cards">
+      <div class="card">
+        <h3>👀 Vizite pe site</h3>
+        <p id="totalVisits">0</p>
+      </div>
+      <div class="card">
+        <h3>📩 Mesaje trimise</h3>
+        <p id="totalMessages">0</p>
+      </div>
+      <div class="card">
+        <h3>🔗 Linkuri accesate</h3>
+        <ul id="linksList"><li>Niciun link accesat încă</li></ul>
+      </div>
+    </section>
+
+    <!-- Grafice -->
+    <section class="charts">
+      <div class="chart-card">
+        <h3>📈 Evoluția vizitelor</h3>
+        <canvas id="visitsChart"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3>💬 Evoluția mesajelor</h3>
+        <canvas id="messagesChart"></canvas>
+      </div>
+    </section>
+
+    <!-- Mesaje -->
+    <section id="messages" class="messages">
+      <h2>📬 Mesaje primite</h2>
+      <table id="messagesTable">
+        <thead>
+          <tr>
+            <th><input type="checkbox" id="selectAll"></th>
+            <th>Nume</th>
+            <th>Email</th>
+            <th>Mesaj</th>
+            <th>Data/Ora</th>
+            <th>Acțiuni</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="actions">
+        <button id="deleteSelected">🗑️ Șterge</button>
+        <button id="archiveSelected">📂 Arhivează</button>
+      </div>
+    </section>
+
+    <!-- Loguri -->
+    <section id="logs" class="logs">
+      <h2>📜 Loguri accesări</h2>
+
+      <h3>👀 Vizite</h3>
+      <ul id="visitsLog"></ul>
+
+      <h3>🔗 Linkuri</h3>
+      <ul id="linksLog"></ul>
+    </section>
+  </main>
+
+  <!-- 🔥 Firebase Script -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getDatabase, ref, onValue, remove, update } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAI-f8p8IJKHsc7MZMIJLI6SOhj8jcoGdU",
+      authDomain: "oana-fitness.firebaseapp.com",
+      databaseURL: "https://oana-fitness-default-rtdb.firebaseio.com",
+      projectId: "oana-fitness",
+      storageBucket: "oana-fitness.firebasestorage.app",
+      messagingSenderId: "3637624818",
+      appId: "1:3637624818:web:e0cd7c2a1217b2b971756b"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // --- Chart Vizite ---
+    const visitsChart = new Chart(document.getElementById("visitsChart"), {
+      type: "line",
+      data: { labels: [], datasets: [{ label: "Vizite", data: [], borderColor: "#3b82f6", backgroundColor: "rgba(59,130,246,0.2)", tension: 0.4 }] },
+      options: { responsive: true, plugins: { legend: { labels: { color: "#333" }}}, scales: { x: { ticks: { color:"#333"}}, y: { ticks: { color:"#333"}}}}
+    });
+
+    // --- Chart Mesaje ---
+    const messagesChart = new Chart(document.getElementById("messagesChart"), {
+      type: "line",
+      data: { labels: [], datasets: [{ label: "Mesaje", data: [], borderColor: "#10b981", backgroundColor: "rgba(16,185,129,0.2)", tension: 0.4 }] },
+      options: { responsive: true, plugins: { legend: { labels: { color: "#333" }}}, scales: { x: { ticks: { color:"#333"}}, y: { ticks: { color:"#333"}}}}
+    });
+
+    // --- Refs ---
+    const visitsRef = ref(db, "stats/visits");
+    const messagesRef = ref(db, "stats/messages");
+    const linksRef = ref(db, "stats/links");
+    const messagesListRef = ref(db, "messages");
+    const visitsLogRef = ref(db, "logs/visits");
+    const linksLogRef = ref(db, "logs/links");
+
+    // Vizite realtime
+    onValue(visitsRef, (snap) => {
+      const count = snap.val() || 0;
+      document.getElementById("totalVisits").textContent = count;
+      const now = new Date().toLocaleTimeString();
+      visitsChart.data.labels.push(now);
+      visitsChart.data.datasets[0].data.push(count);
+      visitsChart.update();
+    });
+
+    // Mesaje realtime
+    onValue(messagesRef, (snap) => {
+      const count = snap.val() || 0;
+      document.getElementById("totalMessages").textContent = count;
+      const now = new Date().toLocaleTimeString();
+      messagesChart.data.labels.push(now);
+      messagesChart.data.datasets[0].data.push(count);
+      messagesChart.update();
+    });
+
+    // Linkuri realtime
+    onValue(linksRef, (snap) => {
+      const links = snap.val() || {};
+      const list = document.getElementById("linksList");
+      list.innerHTML = "";
+      if (Object.keys(links).length === 0) {
+        list.innerHTML = "<li>Niciun link accesat încă</li>";
+      } else {
+        Object.entries(links).forEach(([key, val]) => {
+          const li = document.createElement("li");
+          li.textContent = `${key}: ${val} accesări`;
+          list.appendChild(li);
+        });
+      }
+    });
+
+    // --- Mesaje realtime listă ---
+    onValue(messagesListRef, (snap) => {
+      const data = snap.val() || {};
+      const tbody = document.querySelector("#messagesTable tbody");
+      tbody.innerHTML = "";
+      Object.entries(data).forEach(([id, msg]) => {
+        if (msg.archived) return;
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td><input type="checkbox" class="msgCheck" data-id="${id}"></td>
+          <td>${msg.nume}</td>
+          <td>${msg.email}</td>
+          <td>${msg.text}</td>
+          <td>${new Date(msg.timestamp).toLocaleString()}</td>
+          <td>
+            <button class="deleteBtn" data-id="${id}">🗑️</button>
+            <button class="archiveBtn" data-id="${id}">📂</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      // Butoane individuale
+      document.querySelectorAll(".deleteBtn").forEach(btn => {
+        btn.addEventListener("click", () => remove(ref(db, "messages/" + btn.dataset.id)));
+      });
+      document.querySelectorAll(".archiveBtn").forEach(btn => {
+        btn.addEventListener("click", () => update(ref(db, "messages/" + btn.dataset.id), { archived: true }));
+      });
+    });
+
+    // Selectare/Deselectare toate
+    document.getElementById("selectAll").addEventListener("change", (e) => {
+      document.querySelectorAll(".msgCheck").forEach(cb => cb.checked = e.target.checked);
+    });
+
+    // Ștergere mesaje selectate
+    document.getElementById("deleteSelected").addEventListener("click", () => {
+      document.querySelectorAll(".msgCheck:checked").forEach(cb => {
+        remove(ref(db, "messages/" + cb.dataset.id));
+      });
+    });
+
+    // Arhivare mesaje selectate
+    document.getElementById("archiveSelected").addEventListener("click", () => {
+      document.querySelectorAll(".msgCheck:checked").forEach(cb => {
+        update(ref(db, "messages/" + cb.dataset.id), { archived: true });
+      });
+    });
+
+    // Loguri vizite
+    onValue(visitsLogRef, (snap) => {
+      const logs = snap.val() || {};
+      const list = document.getElementById("visitsLog");
+      list.innerHTML = "";
+      Object.values(logs).forEach(l => {
+        const li = document.createElement("li");
+        li.textContent = new Date(l.timestamp).toLocaleString();
+        list.appendChild(li);
+      });
+    });
+
+    // Loguri linkuri
+    onValue(linksLogRef, (snap) => {
+      const logs = snap.val() || {};
+      const list = document.getElementById("linksLog");
+      list.innerHTML = "";
+      Object.entries(logs).forEach(([link, entries]) => {
+        Object.values(entries).forEach(e => {
+          const li = document.createElement("li");
+          li.textContent = `${link} accesat la ${new Date(e.timestamp).toLocaleString()}`;
+          list.appendChild(li);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
