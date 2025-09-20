@@ -126,12 +126,12 @@ section {
 }
 
 .profil {
-  width: 180px;      /* micuță și proporțională */
+  width: 280px;     /* era 180px, acum o facem mai mare */
   height: auto;
-  border-radius: 15px; /* colțuri rotunjite */
+  border-radius: 15px;
   object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* umbră elegantă */
-  margin-right: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  margin-right: 30px;  /* puțin mai mult spațiu față de text */
 }
 
 .text {
