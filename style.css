@@ -124,15 +124,32 @@ section {
   max-width: 900px;
   margin: 0 auto;
 }
-
 .profil {
-  width: 280px;     /* era 180px, acum o facem mai mare */
+  width: 280px;
   height: auto;
   border-radius: 15px;
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  margin-right: 30px;  /* puțin mai mult spațiu față de text */
+  margin-right: 30px;
+  opacity: 0;
+  transform: scale(0.9);
+  animation: fadeInZoom 1.2s ease forwards;
 }
+
+@keyframes fadeInZoom {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Hover effect */
+.profil:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
 
 .text {
   max-width: 500px;
