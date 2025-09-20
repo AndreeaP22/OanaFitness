@@ -1,211 +1,418 @@
+/* Fonts & Reset */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: #111;
+background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  overflow-x: hidden;
   color: #fff;
 }
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
+/* Dark mode */
+.dark-mode {
+  background: #121212;
+  color: #eee;
+}
+.dark-mode .navbar, 
+.dark-mode footer {
+  background: #1e1e1e;
+}
+.dark-mode .btn-hero {
+  background: #ff6600;
+}
+
+/* Typography */
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+  color: #ff6600;
+  margin-bottom: 20px;
+}
+
+a {
+  color: #ff6600;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background-color: #000;
+  background: rgba(0,0,0,0.5);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
-
-.navbar .logo {
-  display: flex;
-  align-items: center;
-  color: #f60;
-  font-weight: bold;
-}
-
-.navbar .logo img {
+.logo-img-inline {
   height: 40px;
   margin-right: 10px;
 }
-
-.navbar ul {
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff6600;
+}
+.logo span {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ff6600;
+  font-family: 'Montserrat', sans-serif;
+}
+.nav-links {
   list-style: none;
   display: flex;
   gap: 20px;
 }
-
-.navbar ul li a {
-  color: white;
+.nav-links li a {
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 500;
+  color: #fff;
+  transition: color 0.3s ease;
 }
-
-.navbar .menu-toggle {
+.nav-links li a:hover {
+  color: #ff6600;
+}
+.menu-toggle {
   display: none;
-  font-size: 24px;
+  font-size: 2rem;
+  color: #fff;
   cursor: pointer;
 }
+@media (max-width: 768px) {
+  .nav-links { 
+    display: none;
+    flex-direction: column;
+    background-color: #000;
+    width: 100%;
+    text-align: center;
+  }
+  .nav-links.active { display: flex; }
+  .menu-toggle { display: block; }
+}
 
+/* Hero */
 .hero-oana {
+  padding-top: 80px;
+  background-image: url('poza-fitness.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   height: 100vh;
-  background: url('hero.jpg') center/cover no-repeat;
+  width: 100%;
+  margin: 0;
   position: relative;
-}
-
-.hero-oana .overlay {
-  background: rgba(0,0,0,0.6);
-  height: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+}
+.overlay {
+  background: rgba(0, 0, 0, 0.5); 
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+.hero-content {
+  color: white;
+  max-width: 800px;
+}
+.hero-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  color: #ff6600;
+}
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+.btn-hero {
+  background-color: #ff6600;
+  color: white;
+  padding: 14px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+.btn-hero:hover {
+  background-color: #ff3300;
 }
 
-.hero-content {
+/* Secțiuni */
+.section {
+  padding: 100px 20px;
   text-align: center;
 }
 
-.btn-hero {
-  display: inline-block;
-  padding: 10px 20px;
-  background: #f60;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  margin-top: 15px;
-}
-
+/* Grid Servicii */
 .grid {
   display: flex;
   gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
 }
-
 .card {
-  background: #222;
-  padding: 20px;
-  border-radius: 12px;
   width: 300px;
+  height: 400px;
+  perspective: 1000px;
 }
+.card-inner {
+  width: 100%; height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+.card:hover .card-inner { transform: rotateY(180deg); }
+.card-front, .card-back {
+  position: absolute;
+  width: 100%; height: 100%;
+  backface-visibility: hidden;
+}
+.card-back { transform: rotateY(180deg); }
 
-/* --- Secțiunea Despre Oana --- */
+/* Despre */
 .bio {
   display: flex;
-  align-items: center;
-  gap: 20px;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.profil {
+  width: 280px;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.text {
+  max-width: 500px;
+  text-align: left;
 }
 
-.bio img.profil {
-  width: 250px;
-  border-radius: 12px;
-}
-
-/* --- Secțiunea Alimentație sănătoasă --- */
+/* Poze alimentație */
 .poze-alimentatie {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 40px;
+  margin-top: 30px;
   flex-wrap: wrap;
-  margin-top: 20px;
 }
-
 .poze-alimentatie div {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
 .poze-alimentatie img {
-  width: 200px;
-  height: auto;
-  border-radius: 12px;
-  transition: transform 0.3s ease-in-out;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
 }
-
 .poze-alimentatie img:hover {
   transform: scale(1.05);
 }
-
 .poze-alimentatie p {
-  margin-top: 8px;
-  font-size: 14px;
-  color: #fff;
+  margin-top: 10px;
+  font-size: 16px;
+  color: white;
 }
 
+/* Banner */
 .banner-motivational {
-  background: #f60;
+  text-align: center;
+  padding: 80px 20px;
   color: #fff;
-  padding: 50px;
+  background: linear-gradient(90deg, #ff6600, #ff3366);
+  background-size: 200% 200%;
+  animation: gradientMove 6s infinite alternate;
+}
+@keyframes gradientMove {
+  0% { background-position: left; }
+  100% { background-position: right; }
+}
+
+/* Contact */
+.contact-hero {
+  padding: 60px 20px;
   text-align: center;
 }
-
-.contact-hero {
-  background: #222;
-  padding: 40px;
-}
-
 .contact-container {
+  max-width: 800px;
+  margin: auto;
   display: flex;
   gap: 30px;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
 }
-
-.contact-right input,
-.contact-right textarea,
-.contact-right select,
-.contact-right button {
+.contact-right input, .contact-right textarea {
   width: 100%;
+  padding: 12px;
   margin: 10px 0;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
+  border-radius: 10px;
+  border: 1px solid #ccc;
 }
-
 .contact-right button {
-  background: #f60;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 20px;
+  background: #ff3366;
   color: #fff;
   cursor: pointer;
 }
 
-.social-icons-official {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin: 20px 0;
-}
-
-.contact-footer {
-  background: #000;
-  padding: 20px;
-  text-align: center;
-}
-
+/* Footer */
 footer {
-  background: #111;
-  padding: 10px;
   text-align: center;
+  padding: 15px;
+  background: rgba(0,0,0,0.6);
+  margin-top: 30px;
 }
 
-/* --- Responsive --- */
-@media(max-width: 768px) {
-  .navbar ul {
-    display: none;
+/* RESPONSIVE DESIGN */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .section {
+    padding: 60px 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-oana {
+    background-attachment: scroll; /* fix pentru mobil */
+    height: auto;
+    padding: 100px 20px;
+  }
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+  .hero-content p {
+    font-size: 0.95rem;
+  }
+  .grid {
     flex-direction: column;
-    background: #000;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 200px;
-  }
-  .navbar ul.active {
-    display: flex;
-  }
-  .navbar .menu-toggle {
-    display: block;
+    align-items: center;
   }
   .bio {
     flex-direction: column;
     text-align: center;
   }
+  .text {
+    text-align: center;
+  }
+  .poze-alimentatie {
+    gap: 20px;
+  }
+  .poze-alimentatie img {
+    width: 160px;
+    height: 160px;
+  }
 }
+
+@media (max-width: 480px) {
+  .logo span {
+    font-size: 1rem;
+  }
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+  .hero-content p {
+    font-size: 0.85rem;
+  }
+  .btn-hero {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+  .poze-alimentatie img {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+/* --- Social icons --- */
+.social-icons-official {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.social-icons-official a img,
+.social-icons-official a .icon-social {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.social-icons-official a:hover img,
+.social-icons-official a:hover .icon-social {
+  transform: scale(1.2);
+}
+
+/* --- Contact Footer --- */
+.contact-footer {
+  background: #000;
+  padding: 30px 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.contact-footer .centered-social p {
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+.contact-footer a {
+  color: #f60;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-footer a:hover {
+  text-decoration: underline;
+}
+
+/* --- Footer Final --- */
+footer {
+  background: #111;
+  padding: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: #aaa;
+  border-top: 1px solid #333;
+}
+
+
