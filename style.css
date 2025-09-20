@@ -126,7 +126,7 @@ section {
 }
 
 .profil {
-  width: 580px;      /* micuță și proporțională */
+  width: 380px;      /* micuță și proporțională */
   height: auto;
   border-radius: 15px; /* colțuri rotunjite */
   object-fit: cover;
