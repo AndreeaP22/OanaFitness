@@ -85,30 +85,31 @@
         <p>Completează profilul tău și spune-mi ce obiectiv ai. Eu te ajut să-l atingi cu un plan personalizat 💪</p>
       </div>
 
-      <!-- formularul (doar Firebase) -->
-<form action="https://script.google.com/macros/s/AKfycbzFQO6y1TABrzFG0INZ7gmVjTeDYIg8Wpk7LtX-4N9LNJ1Lan4_XPRx9RI_9DlfPmBknw/exec" method="post" class="contact-right">
-  <input type="text" name="nume" placeholder="👤 Numele tău" required>
-  <input type="email" name="email" placeholder="📧 Emailul tău" required>
-  <textarea name="mesaj" rows="4" placeholder="💬 Ce vrei să transformăm împreună..." required></textarea>
-  <input type="number" name="greutate" placeholder="⚖️ Greutate (kg)" required>
-  <input type="number" name="inaltime" placeholder="📏 Înălțime (cm)" required>
-  <select name="stil_viata" required>
-    <option value="">🧘‍♀️ Stil de viață</option>
-    <option value="sedentar">Sedentar</option>
-    <option value="activ">Activ</option>
-    <option value="sportiv">Sportiv</option>
-    <option value="intens">Intens</option>
-  </select>
-  <select name="obiectiv" required>
-    <option value="">🎯 Obiectiv principal</option>
-    <option value="slabire">Slăbire</option>
-    <option value="tonifiere">Tonifiere</option>
-    <option value="masa-musculara">Masă musculară</option>
-    <option value="mentinere">Menținere</option>
-  </select>
-  <button type="submit">📤 Trimite profilul</button>
-</form>
+      <!-- formularul -->
+      <form id="contactForm" class="contact-right">
+        <input type="text" id="nume" name="nume" placeholder="👤 Numele tău" required>
+        <input type="email" id="email" name="email" placeholder="📧 Emailul tău" required>
+        <textarea id="mesaj" name="mesaj" rows="4" placeholder="💬 Ce vrei să transformăm împreună..." required></textarea>
+        <input type="number" id="greutate" name="greutate" placeholder="⚖️ Greutate (kg)" required>
+        <input type="number" id="inaltime" name="inaltime" placeholder="📏 Înălțime (cm)" required>
+        <select id="stil_viata" name="stil_viata" required>
+          <option value="">🧘‍♀️ Stil de viață</option>
+          <option value="sedentar">Sedentar</option>
+          <option value="activ">Activ</option>
+          <option value="sportiv">Sportiv</option>
+          <option value="intens">Intens</option>
+        </select>
+        <select id="obiectiv" name="obiectiv" required>
+          <option value="">🎯 Obiectiv principal</option>
+          <option value="slabire">Slăbire</option>
+          <option value="tonifiere">Tonifiere</option>
+          <option value="masa-musculara">Masă musculară</option>
+          <option value="mentinere">Menținere</option>
+        </select>
+        <button type="submit">📤 Trimite profilul</button>
+      </form>
 
+      <p id="statusMsg"></p>
     </div>
   </section>
 
@@ -144,7 +145,7 @@
     <p>&copy; 2025 Oana | Innate Alpha</p>
   </footer>
 
-  <!-- 🔥 Firebase script -->
+  <!-- 🔥 Script Firebase + Google Apps Script -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
     import { getDatabase, ref, push, set, update } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
@@ -162,51 +163,54 @@
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
 
-    // 📩 Salvăm mesajele în Firebase
+    // 📩 Trimitere formular
     const form = document.getElementById("contactForm");
-    form.addEventListener("submit", (e) => {
+    const statusMsg = document.getElementById("statusMsg");
+
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const nume = document.getElementById("nume").value;
-      const email = document.getElementById("email").value;
-      const mesaj = document.getElementById("mesaj").value;
-      const greutate = document.getElementById("greutate").value;
-      const inaltime = document.getElementById("inaltime").value;
-      const stil_viata = document.getElementById("stil_viata").value;
-      const obiectiv = document.getElementById("obiectiv").value;
-
-      const newMsgRef = push(ref(db, "messages"));
-      set(newMsgRef, {
-        nume,
-        email,
-        mesaj,
-        greutate,
-        inaltime,
-        stil_viata,
-        obiectiv,
+      const data = {
+        nume: document.getElementById("nume").value,
+        email: document.getElementById("email").value,
+        mesaj: document.getElementById("mesaj").value,
+        greutate: document.getElementById("greutate").value,
+        inaltime: document.getElementById("inaltime").value,
+        stil_viata: document.getElementById("stil_viata").value,
+        obiectiv: document.getElementById("obiectiv").value,
         timestamp: Date.now(),
         archived: false,
         deleted: false
-      });
+      };
 
-      alert("✅ Mesaj trimis cu succes!");
-      form.reset();
+      // 1️⃣ Salvăm în Firebase
+      const newMsgRef = push(ref(db, "messages"));
+      await set(newMsgRef, data);
+
+      // 2️⃣ Trimitem și la Gmail (Google Apps Script)
+      try {
+        await fetch("https://script.google.com/macros/s/AKfycbzFQO6y1TABrzFG0INZ7gmVjTeDYIg8Wpk7LtX-4N9LNJ1Lan4_XPRx9RI_9DlfPmBknw/exec", {
+          method: "POST",
+          body: new FormData(form)
+        });
+
+        statusMsg.textContent = "✅ Mesaj trimis cu succes!";
+        statusMsg.style.color = "green";
+        form.reset();
+      } catch (error) {
+        statusMsg.textContent = "❌ Eroare la trimiterea mesajului!";
+        statusMsg.style.color = "red";
+      }
     });
 
-    // 👀 Salvăm vizitele
-    const visitsRef = ref(db, "stats/visits");
-    update(visitsRef, (val) => (val || 0) + 1);
-
+    // 👀 Log vizite
     const logVisitRef = push(ref(db, "logs/visits"));
     set(logVisitRef, { timestamp: Date.now() });
 
-    // 🔗 Salvăm click pe linkuri
+    // 🔗 Log click-uri pe linkuri
     document.querySelectorAll("a.track-link").forEach(link => {
       link.addEventListener("click", () => {
         const name = link.getAttribute("data-name");
-        const linkRef = ref(db, `stats/links/${name}`);
-        update(linkRef, (val) => (val || 0) + 1);
-
         const logLinkRef = push(ref(db, `logs/links/${name}`));
         set(logLinkRef, { timestamp: Date.now() });
       });
