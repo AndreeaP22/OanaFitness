@@ -126,8 +126,12 @@ section {
 }
 
 .profil {
-  width: 250px;
-  border-radius: 10px;
+  width: 180px;      /* micuță și proporțională */
+  height: auto;
+  border-radius: 15px; /* colțuri rotunjite */
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* umbră elegantă */
+  margin-right: 20px;
 }
 
 .text {
