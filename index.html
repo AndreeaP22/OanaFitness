@@ -47,30 +47,25 @@
   </section>
 
   <!-- Servicii -->
-  <section id="servicii" class="section">
-    <h2>Transformă-ți viața cu Oana Fitness</h2>
-    <p>Transformarea ta începe aici...</p>
-    <div class="grid">
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">🏋️‍♀️ Antrenamente private</div>
-          <div class="card-back">Personalizate pentru tine</div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">🥗 Planuri alimentare</div>
-          <div class="card-back">Nutriție echilibrată</div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-inner">
-          <div class="card-front">💻 Online Coaching</div>
-          <div class="card-back">Oriunde te-ai afla</div>
-        </div>
-      </div>
+    <section id="servicii">
+  <h2>Transformă-ți viața cu Oana Fitness</h2>
+  <p>Transformarea ta începe aici. Cu antrenamente personalizate, planuri alimentare și coaching online, ai tot sprijinul de care ai nevoie ca să strălucești în cea mai bună versiune a ta!</p>
+  <div class="grid">
+    <div class="card">
+      <h3>🏋️‍♀️ Antrenamente private, adaptate obiectivelor tale.</h3>
+      <p>Sesiuni personalizate, adaptate nivelului și obiectivelor tale, pentru rezultate rapide și eficiente.</p>
     </div>
-  </section>
+    <div class="card">
+      <h3>🥗 Planuri alimentare</h3>
+      <p>Rețete și planuri nutriționale adaptate stilului tău de viață și obiectivelor tale de fitness.</p>
+    </div>
+    <div class="card">
+      <h3>💻 Online Coaching</h3>
+      <p>Suport și ghidare de la distanță pentru ca tu să rămâi motivată și să atingi obiectivele oriunde te-ai afla.</p>
+    </div>
+  </div>
+</section>
+
 
   <!-- Despre -->
   <section id="despre" class="section">
@@ -95,22 +90,35 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact-hero" class="contact-hero">
-    <div class="contact-container">
-      <div class="contact-left">
-        <img src="paper-plane.png" alt="Paper Plane">
-        <h2>Hai să începem transformarea ta!</h2>
-        <p>Completează profilul tău și spune-mi ce obiectiv ai.</p>
-      </div>
-      <form id="contactForm" action="https://script.google.com/macros/s/..." method="post" class="contact-right">
-        <input type="text" name="nume" placeholder="👤 Nume" required>
-        <input type="email" name="email" placeholder="📧 Email" required>
-        <textarea name="mesaj" rows="4" placeholder="💬 Mesaj..." required></textarea>
+  <!-- formularul conectat la Google Apps Script -->
+      <form id="contactForm" action="https://script.google.com/macros/s/AKfycbz4fngMNkmV_Jw1clndmWH74ubvA3C2fbs5SZbqj-UbXjJjLwY64-fwcONn4ByRXU6-/exec" method="post" class="contact-right">
+        <input type="text" id="nume" name="nume" placeholder="👤 Numele tău" required>
+        <input type="email" id="email" name="email" placeholder="📧 Emailul tău" required>
+        <textarea id="mesaj" name="mesaj" rows="4" placeholder="💬 Ce vrei să transformăm împreună..." required></textarea>
+        <input type="number" id="greutate" name="greutate" placeholder="⚖️ Greutate (kg)" required>
+        <input type="number" id="inaltime" name="inaltime" placeholder="📏 Înălțime (cm)" required>
+        <select id="stil_viata" name="stil_viata" required>
+          <option value="">🧘‍♀️ Stil de viață</option>
+          <option value="sedentar">Sedentar</option>
+          <option value="activ">Activ</option>
+          <option value="sportiv">Sportiv</option>
+          <option value="intens">Intens</option>
+        </select>
+        <select id="obiectiv" name="obiectiv" required>
+          <option value="">🎯 Obiectiv principal</option>
+          <option value="slabire">Slăbire</option>
+          <option value="tonifiere">Tonifiere</option>
+          <option value="masa-musculara">Masă musculară</option>
+          <option value="mentinere">Menținere</option>
+        </select>
         <button type="submit">📤 Trimite profilul</button>
       </form>
-      <p id="successMsg" style="color: green; display: none;">✅ Trimis!</p>
+
+      <!-- mesaj de confirmare -->
+      <p id="successMsg" style="color: green; display: none;">✅ Formular trimis cu succes! Vei fi contactată pe email.</p>
     </div>
   </section>
+
 
   <!-- Footer -->
   <footer>
