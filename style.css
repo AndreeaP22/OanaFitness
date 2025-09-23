@@ -48,11 +48,13 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background: rgba(0,0,0,0.5);
+  background: #000000;  /* schimbă aici culoarea (ex: #000000 pentru negru) */
   position: sticky;
   top: 0;
   z-index: 1000;
+  border-bottom: 1px solid #e2e8f0; /* opțional: o linie subtilă jos */
 }
+
 .logo-img-inline {
   height: 40px;
   margin-right: 10px;
@@ -161,6 +163,15 @@ a:hover {
   text-align: center;
 }
 
+/*serviciii*/
+#servicii {
+  background: #000;   /* fundal negru */
+  color: #fff;        /* text alb */
+  padding: 100px 20px;
+  text-align: center;
+}
+
+
 /* Grid Servicii */
 .grid {
   display: flex;
@@ -187,6 +198,20 @@ a:hover {
 .card-back { transform: rotateY(180deg); }
 
 /* Despre */
+
+#despre {
+  background: #000;   /* fundal negru */
+  color: #fff;        /* text alb */
+  padding: 100px 20px;
+}
+
+#despre h2 {
+  text-align: center;
+  color: #ff6600; /* titlul portocaliu */
+  margin-bottom: 40px;
+
+}
+
 .bio {
   display: flex;
   align-items: center;
@@ -246,6 +271,7 @@ a:hover {
   background: linear-gradient(90deg, #ff6600, #ff3366);
   background-size: 200% 200%;
   animation: gradientMove 6s infinite alternate;
+  background-color: #ff6600;
 }
 @keyframes gradientMove {
   0% { background-position: left; }
@@ -265,9 +291,10 @@ a:hover {
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
-  background: #111;
+ background: rgba(0, 0, 0, 0.7);
   padding: 30px;
   border-radius: 12px;
+  backdrop-filter: blur(8px); 
 }
 .contact-left {
   flex: 1;
